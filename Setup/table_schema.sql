@@ -10,15 +10,15 @@ CREATE TABLE IF NOT EXISTS "Blog"."Article" (
     "CategoryId" VARCHAR(32) NOT NULL,
     "Archived" BOOLEAN DEFAULT FALSE,
     "Published" BOOLEAN DEFAULT FALSE,
-    "CreateTime" TIMESTAMP DEFAULT now(),
-    "UpdateTime" TIMESTAMP DEFAULT now()
+    "CreateTime" TIMESTAMP DEFAULT NOW(),
+    "UpdateTime" TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "Blog"."ArticleHistory" (
     "Id" VARCHAR(32) PRIMARY KEY,
     "ArticleId" VARCHAR(32),
     "Content" TEXT NOT NULL,
-    "CreateTime" TIMESTAMP DEFAULT now()
+    "CreateTime" TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "Blog"."Category" (
@@ -26,21 +26,31 @@ CREATE TABLE IF NOT EXISTS "Blog"."Category" (
     "Name" VARCHAR(64) NOT NULL,
     "Level" INTEGER DEFAULT 1,
     "ParentId" VARCHAR(32),
-    "CreateTime" TIMESTAMP DEFAULT now(),
-    "UpdateTime" TIMESTAMP DEFAULT now()
+    "CreateTime" TIMESTAMP DEFAULT NOW(),
+    "UpdateTime" TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "Blog"."Tag" (
     "Id" VARCHAR(32) PRIMARY KEY,
     "Name" VARCHAR(64) NOT NULL,
-    "CreateTime" TIMESTAMP DEFAULT now(),
-    "UpdateTIme" TIMESTAMP DEFAULT now(),
+    "CreateTime" TIMESTAMP DEFAULT NOW(),
+    "UpdateTIme" TIMESTAMP DEFAULT NOW(),
 );
 
 CREATE TABLE IF NOT EXISTS "Blog"."ArticleTag" (
     "ArticleId" VARCHAR(32),
     "TagId" VARCHAR(32),
-    "CreateTime" TIMESTAMP DEFAULT now(),
-    "UpdateTIme" TIMESTAMP DEFAULT now(),
+    "CreateTime" TIMESTAMP DEFAULT NOW(),
+    "UpdateTIme" TIMESTAMP DEFAULT NOW(),
     CONSTRAINT article_tag UNIQUE("ArticleId", "TagId")
 );
+
+CREATE SCHEMA "User";
+
+CREATE TABLE IF NOT EXISTS "User"."User" (
+    "Id" VARCHAR(32),
+    "Name" VARCHAR(128) NOT NULL,
+    "Email" VARCHAR(128) NOT NULL,
+    "CreateTime" TIMESTAMP DEFAULT NOW(),
+    "UpdateTime" TIMESTAMP DEFAULT NOW(),
+)
