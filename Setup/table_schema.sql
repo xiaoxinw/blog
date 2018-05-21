@@ -34,14 +34,14 @@ CREATE TABLE IF NOT EXISTS "Blog"."Tag" (
     "Id" VARCHAR(32) PRIMARY KEY,
     "Name" VARCHAR(64) NOT NULL,
     "CreateTime" TIMESTAMP DEFAULT NOW(),
-    "UpdateTIme" TIMESTAMP DEFAULT NOW(),
+    "UpdateTIme" TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "Blog"."ArticleTag" (
     "ArticleId" VARCHAR(32),
     "TagId" VARCHAR(32),
     "CreateTime" TIMESTAMP DEFAULT NOW(),
-    "UpdateTIme" TIMESTAMP DEFAULT NOW(),
+    "UpdateTIme" TIMESTAMP DEFAULT NOW()
     CONSTRAINT article_tag UNIQUE("ArticleId", "TagId")
 );
 
@@ -52,5 +52,5 @@ CREATE TABLE IF NOT EXISTS "User"."User" (
     "Name" VARCHAR(128) NOT NULL,
     "Email" VARCHAR(128) NOT NULL,
     "CreateTime" TIMESTAMP DEFAULT NOW(),
-    "UpdateTime" TIMESTAMP DEFAULT NOW(),
-)
+    "UpdateTime" TIMESTAMP DEFAULT NOW()
+);
