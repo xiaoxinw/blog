@@ -1,9 +1,10 @@
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
-namespace blog
+namespace Blog
 {
-    public class DBHelper
+    public class DbContext 
     {
         public static IDbConnection GetConnection()
         {
