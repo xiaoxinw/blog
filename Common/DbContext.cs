@@ -6,7 +6,9 @@ namespace Blog
 {
     public class DbContext 
     {
-        public static IDbConnection GetConnection()
+        public DbContext(){}
+
+        public IDbConnection GetConnection()
         {
             return new SqlConnection();
         }
