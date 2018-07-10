@@ -1,4 +1,4 @@
-namespace Blog.Respotiories
+namespace Blog.Repositories
 {
     public abstract class EntityBase
     {

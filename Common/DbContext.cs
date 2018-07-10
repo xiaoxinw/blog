@@ -10,7 +10,9 @@ namespace Blog
 
         public IDbConnection GetConnection()
         {
-            return new SqlConnection();
+            var con = new SqlConnection();
+            con.Open();
+            return con;
         }
     }
 }
