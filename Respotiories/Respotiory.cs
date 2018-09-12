@@ -8,6 +8,11 @@ namespace Blog.Repositories
     public class Repostory<T>:IRespotiory<T> where T: EntityBase
     {
         private DbContext _dbContext;
+
+        public Repostory(DbContext dbcontext)
+        {
+            _dbContext = dbcontext;
+        }
         public virtual T Get(string id)
         {
             using(IDbConnection con = _dbContext.GetConnection())
