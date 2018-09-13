@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using Blog.Repositories;
+
 namespace Blog
 {
     public class Startup
@@ -37,6 +39,8 @@ namespace Blog
 
             // services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<DbContext>(options => { return new DbContext(Configuration); });
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
