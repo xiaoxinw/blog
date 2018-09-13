@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Blog.Repositories
 {
-    public interface IRespotiory<T> where T: EntityBase
+    public interface IRepository<T> where T: EntityBase
     {
         T Get(string id);
         IEnumerable<T> GetAll();

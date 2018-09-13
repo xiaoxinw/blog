@@ -5,11 +5,11 @@ using Blog;
 
 namespace Blog.Repositories
 {
-    public class Repostory<T>:IRespotiory<T> where T: EntityBase
+    public class Repository<T>:IRepository<T> where T: EntityBase
     {
         private DbContext _dbContext;
 
-        public Repostory(DbContext dbcontext)
+        public Repository(DbContext dbcontext)
         {
             _dbContext = dbcontext;
         }
