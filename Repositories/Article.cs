@@ -1,5 +1,8 @@
+using Dapper.Contrib.Extensions;
+
 namespace Blog.Repositories
 {
+    [Table("Article")]
     public class Article: EntityBase
     {
         public string Id { get; set; }
