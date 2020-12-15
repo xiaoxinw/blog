@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Blog.Repositories;
+
 namespace Blog
 {
     public class Startup
@@ -26,6 +28,9 @@ namespace Blog
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddScoped<DbContext>(options => { return new DbContext(Configuration); });
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
